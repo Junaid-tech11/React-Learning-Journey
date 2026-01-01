@@ -1,15 +1,15 @@
 
-import Work from "./Work"
+import ProfileCard from "./ProfileCard"
 
 function App() {
-
+    const userName = "Junaid"
+    const userJob = "JavaScriptDev"
 
   // This "return" is what puts things on the screen!
   return (
     <>
-    <Work/>
-    <h3>Test Start</h3>
-    <h3>Test Stop</h3>
+  <ProfileCard  name= {userName}  job={userJob}/>
+  <ProfileCard  name= 'Alice'  job='PythonDev'/>
     </>
   )
 }
