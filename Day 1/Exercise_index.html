@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Day 1 - Complete Exercises</title>
+    <style>
+        /* Internal Styles */
+        .profile-card {
+            background: linear-gradient(135deg, #2c5f2d, #4a9a5a);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 50px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-info {
+            font-size: 22px;
+            margin: 15px 0;
+            opacity: 0.95;
+        }
+
+        .app-container {
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #f0f8ff, #e8f4f8);
+            padding: 20px 0;
+        }
+
+        .footer {
+            background: #6cf;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        // 1. User data object
+        const user = {
+            fullName: 'Junaid Abbasi',
+            country: 'Pakistan',
+            title: 'Frontend Developer',
+            gender: 'Male',
+            email: 'junaid@example.com',
+            phone: '+92 300 1234567',
+            skills: ['HTML', 'CSS', 'JavaScript'],
+            isOnline: true,
+            age: 20
+        }
+
+        // 2. JSX elements with injected data
+        const userProfile = (
+            <div className="profile-card">
+                <h1>{user.fullName}</h1>
+                <p className="profile-info">Country: {user.country}</p>
+                <p className="profile-info">Title: {user.title}</p>
+                <p className="profile-info">Gender: {user.gender}</p>
+                <p className="profile-info">Email: {user.email}</p>
+                <p className="profile-info">Phone: {user.phone}</p>
+                <p className="profile-info">Status: {user.isOnline ? '🟢 Online' : '🔴 Offline'}</p>
+                <p className="profile-info">Age: {user.age}</p>
+            </div>
+        )
+
+        const footer = (
+            <footer className="footer">
+                <p>&copy; {new Date().getFullYear()} {user.fullName}. All rights reserved.</p>
+            </footer>
+        )
+
+        const app = (
+            <div className="app-container">
+                {userProfile}
+                {footer}
+            </div>
+        )
+
+        ReactDOM.render(app, root)
+    </script>
+</body>
+
+</html>
