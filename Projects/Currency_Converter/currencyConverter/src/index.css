@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Resets the default margin and forces full height */
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+}
