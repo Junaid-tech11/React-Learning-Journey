@@ -38,7 +38,7 @@ export const todoSlice = createSlice({
     initialState,
     //now here we make our reducer which have properties and function
     // reducers: {
-    //     addtodo: sayHello
+    //     add_todo: sayHello
     // }
     //Method 2:Always reducer returns (state, action)
     //state: it access the values to our initial state live 
