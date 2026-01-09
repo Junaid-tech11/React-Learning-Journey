@@ -2,7 +2,7 @@ import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
-    Client = new Client();
+    client = new Client();
     account;
 
     constructor() {
@@ -30,7 +30,7 @@ export class AuthService {
             }
 
         } catch (error) {
-            console.log("Appwrite sevice ", error);
+            console.log("Appwrite service:: createAccount ::error", error);
 
         }
     }
@@ -42,7 +42,7 @@ export class AuthService {
                 email, password
             );
         } catch (error) {
-            console.log("Appwrite sevice ", error);
+            console.log("Appwrite service:: login ::error", error);
 
         }
     }
