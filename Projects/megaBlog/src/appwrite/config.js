@@ -1,16 +1,17 @@
 import conf from "../conf/conf";
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query } from "appwrite";  // it deals with databases auth , storage and other features
 
+//made a class for all Services
 export class Service {
     client = new Client();
     databases;
     bucket;
 
+    //called the constructor to call the objects later
     constructor() {
         this.client
             .setEndpoint(conf.appwriteUrl)
             .setEndpoint(conf.appwriteProjectID)
-            .setProject(conf.appwriteProjectID);
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
 
@@ -102,6 +103,7 @@ export class Service {
             console.log("APPwrite service ::getAllPosts::error", error);
         }
     }
+
 
     // file upload method
 
