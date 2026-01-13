@@ -11,7 +11,7 @@ export class Service {
     constructor() {
         this.client
             .setEndpoint(conf.appwriteUrl)
-            .setEndpoint(conf.appwriteProjectID)
+            .setProject(conf.appwriteProjectID)
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
 
@@ -24,6 +24,7 @@ export class Service {
         try {
             return await this.databases.createRow(
                 conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 slug,
                 {
                     title,
@@ -74,7 +75,7 @@ export class Service {
         }
     }
 
-    async getPostsByUser(slug) {
+    async getPost(slug) {
         try {
             return await this.databases.getRow(
                 conf.appwriteDatabaseID,
@@ -93,7 +94,7 @@ export class Service {
         'status', 'active'
     )]) {
         try {
-            return await this.databases.listRows(
+            return await this.databases.listDocuments(
                 conf.appwriteDatabaseID,
                 conf.appwriteCollectionID,
                 quires,
@@ -101,6 +102,7 @@ export class Service {
             )
         } catch (error) {
             console.log("APPwrite service ::getAllPosts::error", error);
+            return false;
         }
     }
 
@@ -136,22 +138,12 @@ export class Service {
         }
     }
 
-    async getFilePreview(fileId) {
-        try {
-            return this.bucket.getFilePreview({
-                bucketId: conf.appwriteBucketID,
-                fileId
-            })
-        } catch (error) {
-            console.log("APPwrite service ::getFilePreview::error", error);
-            return false;
-        }
+    getFilePreview(fileId) {
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId
+        )
     }
-
-
-
 }
-
-
 const service = new Service()
 export default service

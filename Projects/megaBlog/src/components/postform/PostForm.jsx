@@ -4,12 +4,12 @@ import { Button, Input, Select, RTE } from '../index'
 import appwriteService from '../../appwrite/config'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { AppwriteException } from 'appwrite'
 
 
 
 
-function PostForm(post) {
+
+export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue,
         control, getValues } = useForm({
             defaultValues: {
@@ -93,7 +93,7 @@ function PostForm(post) {
                 .replace(/^[a-zA-Z\d\s]+/g, '-')
                 .replace(/\s/g, '-')
 
-        return ''
+        return '';
     }, [])
 
     React.useEffect(() => {
@@ -167,4 +167,3 @@ function PostForm(post) {
     );
 }
 
-export default PostForm
