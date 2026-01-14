@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux'
 import './App.css'
 import authService from './appwrite/auth'
 import { login, logout } from './store/authSlice'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
+import { Header, Footer } from './components'
 import { Outlet } from 'react-router-dom'
+import { ThemeProvider } from './contexts/theme'
 
 
 
@@ -16,29 +16,54 @@ function App() {
   //dispatch is used to merge react and react-redux
   const dispatch = useDispatch()
 
+
+  const [themeMode, setThemeMode] = useState("light")
+
+  const lightTheme = () => {
+    setThemeMode("light")
+  }
+
+  const darkTheme = () => {
+    setThemeMode("dark")
+  }
+
+  // ✅ ACTUAL THEME CHANGE LOGIC
+  useEffect(() => {
+    document.querySelector('html').classList.remove("light", "dark")
+    document.querySelector('html').classList.add(themeMode)
+  }, [themeMode])
+
   useEffect(() => {
     authService.getCurrentUser()
       .then((userData) => {
         if (userData) {
+          console.log(userData)
           dispatch(login({ userData }))
-        } else {
-          dispatch(logout())
         }
+        else {
+          dispatch(logout({}))
+        }
+      })
+      .catch((error) => {
+        console.log('Appwirte service :: getCurrentUser :: error ', error)
       })
       .finally(() => setLoading(false))
   }, [])
 
   return !loading ? (
-    <div className='min-h-screen'>
-      <div className='w-full block'>
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
 
-    </div>
+    <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
+      <div className="min-h-screen flex flex-wrap content-between bg-brand-light dark:bg-brand-dark transition-colors duration-300">
+        <div className="w-full block">
+          <Header />
+          <main>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+
+      </div>
+    </ThemeProvider>
   ) : (null)
 }
 export default App

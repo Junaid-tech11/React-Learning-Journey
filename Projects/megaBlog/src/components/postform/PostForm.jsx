@@ -22,7 +22,7 @@ export default function PostForm({ post }) {
         })
 
     const navigate = useNavigate()
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
 
     const submit = async (data) => {
         if (post) {
@@ -79,22 +79,16 @@ export default function PostForm({ post }) {
     // the value in the form state using setValue.
 
 
-
     const slugTransform = useCallback((value) => {
-        // if (value && typeof value === 'string') {
-        //     const slug = value.toLowerCase().replace(/ /g,
-        //         '-')
-        //     setValue('slug', slug)
-        //     return slug
-
         if (value && typeof value === 'string')
-            return value.trim()
+            return value
+                .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-Z\d\s]+/g, '-')
-                .replace(/\s/g, '-')
+                .replace(/[^a-zA-Z\d\s]+/g, '-') // Regex: Remove invalid chars
+                .replace(/\s/g, '-'); // Regex: Replace spaces with dashes
 
         return '';
-    }, [])
+    }, []);
 
     React.useEffect(() => {
 

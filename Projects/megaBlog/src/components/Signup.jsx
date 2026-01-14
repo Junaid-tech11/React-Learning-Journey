@@ -6,8 +6,6 @@ import { Button, Input, Logo } from './index'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-
-
 function Signup() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
@@ -17,15 +15,25 @@ function Signup() {
     const create = async (data) => {
         setError('')
         try {
-            // 1. Create the Account
+            console.log("Step 1: Creating Account...", data);
             const session = await authService.createAccount(data)
+
             if (session) {
-                const user = await authService.getCurrentUser()
-                if (user) dispatch(login(user));
-                navigate('/')
+                console.log("Step 2: Account Created. Fetching User Data...");
+                const userData = await authService.getCurrentUser()
+
+                if (userData) {
+                    console.log("Step 3: Dispatching to Redux...", userData);
+                    // ✅ CRITICAL FIX: Match the structure expected by authSlice
+                    dispatch(login({ userData }));
+
+                    console.log("Step 4: Navigating to Home...");
+                    navigate('/')
+                }
             }
         }
         catch (error) {
+            console.error("Signup Failed:", error);
             setError(error.message)
         }
     }
@@ -85,7 +93,6 @@ function Signup() {
                     </div>
                 </form>
             </div>
-
         </div>
     )
 }

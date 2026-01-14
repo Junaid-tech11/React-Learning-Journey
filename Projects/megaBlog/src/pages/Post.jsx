@@ -12,7 +12,6 @@ export default function Post() {
 
     const userData = useSelector((state) => state.auth.userData);
 
-
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
     useEffect(() => {
@@ -24,7 +23,6 @@ export default function Post() {
         } else navigate('/');
     }, [slug, navigate]);
 
-
     const deletePost = () => {
         if (!post?.$id) return;
         appwriteService.deletePost(post.$id).then((status) => {
@@ -35,16 +33,16 @@ export default function Post() {
         });
     };
 
-
-
     return post ? (
         <div className="py-8">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        // ✅ FIX: Changed getFilePreview -> getFileView
+                        src={appwriteService.getFileView(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        // ✅ STYLE: Added max-height so big images look like banners
+                        className="rounded-xl w-full max-h-[500px] object-cover"
                     />
 
                     {isAuthor && (

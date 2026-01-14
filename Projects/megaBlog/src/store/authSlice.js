@@ -9,19 +9,19 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-
-        //actions
         login: (state, action) => {
             state.status = true;
-            state.userData = action.payload;
+            // ✅ FIXED: We extract .userData from the payload
+            // This matches the dispatch(login({ userData })) in App.jsx
+            state.userData = action.payload.userData;
         },
         logout: (state) => {
             state.status = false;
-            state.userData = null
+            state.userData = null;
         }
     }
 })
 
+export const { login, logout } = authSlice.actions;
 
-export const { login, logout } = authSlice.actions
 export default authSlice.reducer;

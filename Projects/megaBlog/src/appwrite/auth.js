@@ -14,6 +14,12 @@ export class AuthService {
     }
 
     async createAccount({ email, password, name }) {
+
+        // --- ADD THIS DEBUG BLOCK ---
+        console.log("AuthService :: createAccount :: STARTED");
+        console.log("Params received:", { email, password, name });
+        // ----------------------------
+
         try {
             const userAccount = await this.account.create(
                 ID.unique(),
@@ -56,7 +62,7 @@ export class AuthService {
 
     async logout() {
         try {
-            // ✅ UPDATED (latest Appwrite)
+
             await this.account.deleteSession("current");
         } catch (error) {
             console.log("Appwrite service :: logout :: error", error);
