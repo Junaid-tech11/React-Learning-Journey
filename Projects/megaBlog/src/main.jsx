@@ -79,16 +79,10 @@ const router = createBrowserRouter([
     ]
   }
 ])
-import conf from './conf/conf.js' // Make sure this path is correct
 
-console.log("---------------- DEBUG START ----------------");
-console.log("Full Config Object:", conf);
-console.log("Database ID from Env:", import.meta.env.VITE_APPWRITE_DATABASE_ID);
-console.log("Database ID from Conf:", conf.appwriteDatabaseId);
-console.log("---------------- DEBUG END ------------------");
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // ... rest of your code
+
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(

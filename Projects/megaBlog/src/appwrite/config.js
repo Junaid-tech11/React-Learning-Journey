@@ -120,9 +120,7 @@ export class Service {
     }
 
     getFilePreview(fileId) {
-        // getFilePreview usually returns a URL string, not a Promise,
-        // so it often still uses positional arguments or a slightly different structure.
-        // CHECK: In v19, it also accepts an object!
+
         return this.bucket.getFilePreview({
             bucketId: conf.appwriteBucketId,
             fileId: fileId

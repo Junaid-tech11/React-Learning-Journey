@@ -11,8 +11,8 @@ const authSlice = createSlice({
     reducers: {
         login: (state, action) => {
             state.status = true;
-            // ✅ FIXED: We extract .userData from the payload
-            // This matches the dispatch(login({ userData })) in App.jsx
+
+
             state.userData = action.payload.userData;
         },
         logout: (state) => {

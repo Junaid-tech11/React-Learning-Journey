@@ -24,7 +24,8 @@ function Signup() {
 
                 if (userData) {
                     console.log("Step 3: Dispatching to Redux...", userData);
-                    // ✅ CRITICAL FIX: Match the structure expected by authSlice
+
+
                     dispatch(login({ userData }));
 
                     console.log("Step 4: Navigating to Home...");

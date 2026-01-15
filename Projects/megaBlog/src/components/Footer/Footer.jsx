@@ -4,7 +4,7 @@ import Logo from '../Logo'
 
 function Footer() {
     return (
-        // ✅ STYLE FIX: Dark Navy background to match Header
+
         <section className="relative overflow-hidden py-10 bg-[#0f172a] border-t border-gray-700 font-medium">
             <div className="relative z-10 mx-auto max-w-7xl px-4">
                 <div className="-m-6 flex flex-wrap">

@@ -38,10 +38,11 @@ export default function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        // ✅ FIX: Changed getFilePreview -> getFileView
+
+
                         src={appwriteService.getFileView(post.featuredImage)}
                         alt={post.title}
-                        // ✅ STYLE: Added max-height so big images look like banners
+
                         className="rounded-xl w-full max-h-[500px] object-cover"
                     />
 
