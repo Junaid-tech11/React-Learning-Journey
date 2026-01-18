@@ -1,9 +1,14 @@
 import { createContext, useContext } from "react";
 
 export const ThemeContext = createContext({
-    themeMode: "light",
+
+
+    //here we are going to convert the theme if user click on dark it will turn into dark and so on
+    hemeMode: "light",
     darkTheme: () => { },
     lightTheme: () => { },
+
+
 });
 
 export const ThemeProvider = ThemeContext.Provider;
