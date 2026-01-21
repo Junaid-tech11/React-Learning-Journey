@@ -1,0 +1,19 @@
+{
+    "name":"SabreBackend",
+    "web":{
+        "http":{
+            "port":8080
+        },
+        "rewrites":{
+            "enable":true
+        }
+    },
+    "app":{
+        "rest":{
+            "servletPath":"/rest"
+        }
+    },
+    "jvm":{
+        "args":"-Dlucy.controller.password=admin123"
+    }
+}
