@@ -4,11 +4,12 @@ import './App.css';
 const API_URL = 'http://127.0.0.1:53002/api/Employees.cfc?method=getAllEmployees';
 
 function App() {
-  const [employees, setEmployees] = useState([]);
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [employees, setEmployees] = useState([]);  //handle search operation and loading state
+  const [search, setSearch] = useState('');   //state to store search input
+  const [loading, setLoading] = useState(true); //state to manage loading status
+  const [error, setError] = useState(''); //state to manage error messages
 
+  //To fetch the data from api 
   useEffect(() => {
     fetch(API_URL)
       .then((res) => {
@@ -26,6 +27,7 @@ function App() {
       });
   }, []);
 
+  //filter employees based on search input
   const filtered = employees.filter((e) =>
     `${e.FIRSTNAME} ${e.LASTNAME} ${e.ROLE} ${e.DEPARTMENT} ${e.LOCATION}`
       .toLowerCase()
@@ -44,6 +46,7 @@ function App() {
         className="search-input"
       />
 
+    //display loading and error messages
       {loading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
 
