@@ -46,6 +46,10 @@ function App() {
         className="search-input"
       />
 
+
+
+
+
     //display loading and error messages
       {loading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
