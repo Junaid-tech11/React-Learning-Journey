@@ -39,6 +39,9 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                 exerciseOptions
             );
 
+
+
+
             const searchedExercises = exercisesData.filter(
                 (exercise) => exercise.name.toLowerCase().includes(search)
                     || exercise.target.toLowerCase().includes(search)
@@ -48,6 +51,8 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
 
             setSearch('');
             setExercises(searchedExercises);
+
+
 
             // Scroll down to results
             window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
