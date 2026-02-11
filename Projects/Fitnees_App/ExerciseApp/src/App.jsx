@@ -10,10 +10,11 @@ import Footer from './components/Footer';
 
 
 const App = () => {
-  console.log("MY KEY IS:", import.meta.env.VITE_RAPID_API_KEY);
+
   return (
     //to make the app responsive we will use the Box component from MUI
     //  and set the width to 400px for small screens and 1488px for larger screens
+
     <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
       <Navbar />
       <Routes>

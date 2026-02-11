@@ -3,34 +3,36 @@ import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 
+import HorizontalScrollbar from './Horizontal';
+
 const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
     const [search, setSearch] = useState('');
+    const [exercises, setAllExercises] = useState([]);
+
 
     useEffect(() => {
+        // Fetching body parts and exercises data on component mount
         const fetchExercisesData = async () => {
-            try {
-                const bodyPartsData = await fetchData(
-                    'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
-                    exerciseOptions
-                );
+            const bodyPartsData = await fetchData(
+                'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+                exerciseOptions
+            );
+            console.log("WHAT DID RAPIDAPI SEND?", bodyPartsData);
 
-                // 1. DEBUG: Print exactly what the API sent us
-                console.log("🔎 API RESPONSE:", bodyPartsData);
+            setBodyParts(['all', ...bodyPartsData]);
 
-                // 2. SAFETY CHECK: Only use the data if it is a real Array (List)
-                if (Array.isArray(bodyPartsData)) {
-                    setBodyParts(['all', ...bodyPartsData]);
-                } else {
-                    // If it's not an array, tell us why in the console
-                    console.error("⚠️ API Error. Received:", bodyPartsData);
-                }
-            } catch (error) {
-                console.error("❌ Network Error:", error);
-            }
+
+
+            const exercisesData = await fetchData(
+                'https://exercisedb.p.rapidapi.com/exercises?limit=1000',
+                exerciseOptions
+            );
+            setAllExercises(exercisesData);
         };
 
         fetchExercisesData();
-    }, []);
+    }, [setBodyParts]);
+
 
 
     const handleSearch = async () => {
@@ -39,7 +41,6 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                 'https://exercisedb.p.rapidapi.com/exercises?limit=1000',
                 exerciseOptions
             );
-
 
 
 
@@ -91,6 +92,9 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                 >
                     Search
                 </Button>
+            </Box>
+            <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
+                <HorizontalScrollbar data={bodyParts} />
             </Box>
         </Stack>
     );
