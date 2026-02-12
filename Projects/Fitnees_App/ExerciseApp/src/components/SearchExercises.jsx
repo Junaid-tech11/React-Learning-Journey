@@ -53,13 +53,17 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
 
             setSearch('');
             setExercises(searchedExercises);
-
+            0
 
 
             // Scroll down to results
             window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
         }
     };
+
+
+
+
 
     return (
         <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -80,6 +84,8 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                         borderRadius: '40px'
                     }}
                 />
+
+
                 <Button className="search-btn"
                     sx={{
                         bgcolor: '#FF2625', color: '#fff', textTransform: 'none',
