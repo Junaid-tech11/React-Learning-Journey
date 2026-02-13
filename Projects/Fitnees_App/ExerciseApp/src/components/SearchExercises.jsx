@@ -61,9 +61,7 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
         }
     };
 
-
-
-
+    //return statment
 
     return (
         <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -85,7 +83,7 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                     }}
                 />
 
-
+                    //button
                 <Button className="search-btn"
                     sx={{
                         bgcolor: '#FF2625', color: '#fff', textTransform: 'none',
