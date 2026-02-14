@@ -61,6 +61,9 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
         }
     };
 
+
+
+
     //return statment
 
     return (
@@ -82,6 +85,8 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
                         borderRadius: '40px'
                     }}
                 />
+
+
 
                     //button
                 <Button className="search-btn"
