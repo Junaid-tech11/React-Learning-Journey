@@ -88,6 +88,11 @@ const SearchExercises = ({ setExercises, bodyParts, setBodyParts }) => {
 
 
 
+
+
+
+
+
                     //button
                 <Button className="search-btn"
                     sx={{
