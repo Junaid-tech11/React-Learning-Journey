@@ -1,0 +1,17 @@
+[20 Feb, 2026 - 10:30:01:301] [34minfo[39m: [34m[39m
+[34m☘️  MongoDB Connected! Db host: ac-uyweuy3-shard-00-01.kgvdna6.mongodb.net[39m
+[34m[39m
+[20 Feb, 2026 - 10:30:01:301] [34minfo[39m: [34m📑 Visit the documentation at: http://localhost:8080[39m
+[20 Feb, 2026 - 10:30:01:301] [34minfo[39m: [34m⚙️  Server is running on port: 8080[39m
+[20 Feb, 2026 - 10:31:38:3138] [35mhttp[39m: [35m::1 GET /healthcheck 200 - 7.214 ms[39m
+[20 Feb, 2026 - 10:31:38:3138] [35mhttp[39m: [35m::1 GET /swagger-ui-init.js 200 - 21.651 ms[39m
+[20 Feb, 2026 - 10:31:38:3138] [35mhttp[39m: [35m::1 GET /swagger-ui.css 200 - 116.871 ms[39m
+[20 Feb, 2026 - 10:31:38:3138] [35mhttp[39m: [35m::1 GET /swagger-ui-standalone-preset.js 200 - 123.259 ms[39m
+[20 Feb, 2026 - 10:31:38:3138] [35mhttp[39m: [35m::1 GET /swagger-ui-bundle.js 200 - 114.198 ms[39m
+[20 Feb, 2026 - 10:31:39:3139] [35mhttp[39m: [35m::1 GET /swagger-ui-standalone-preset.js 200 - 1.028 ms[39m
+[20 Feb, 2026 - 10:31:39:3139] [35mhttp[39m: [35m::1 GET /swagger-ui-init.js 200 - 18.208 ms[39m
+[20 Feb, 2026 - 10:31:39:3139] [35mhttp[39m: [35m::1 GET /swagger-ui-bundle.js 200 - 0.831 ms[39m
+[20 Feb, 2026 - 10:31:41:3141] [35mhttp[39m: [35m::1 GET /favicon-32x32.png 200 - 11.907 ms[39m
+[20 Feb, 2026 - 10:32:19:3219] [34minfo[39m: [34m[39m
+[34m☘️  MongoDB Connected! Db host: ac-uyweuy3-shard-00-02.kgvdna6.mongodb.net[39m
+[34m[39m
